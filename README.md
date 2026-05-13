@@ -10,7 +10,7 @@
 │                                         │
 │  ┌─────────────┐  ┌──────────────────┐  │
 │  │  Frontend    │  │  API (api-       │  │
-│  │  :8080       │──│  enhanced) :3000 │  │
+│  │  :10513      │──│  enhanced) :3000 │  │
 │  │  server.js   │  │  app.js          │  │
 │  └─────────────┘  └──────────────────┘  │
 │        │                   │            │
@@ -43,14 +43,14 @@ export SESSION_SECRET=your-random-secret
 docker compose up -d
 ```
 
-访问 `http://<你的服务器IP>:8080`
+访问 `http://<你的服务器IP>:10513`
 
 ### Docker 直接运行
 
 ```bash
 docker run -d \
   --name ncm-dnb \
-  -p 8080:8080 \
+  -p 10513:10513 \
   -v $(pwd)/data:/app/data \
   -e SESSION_SECRET=your-random-secret \
   -e TZ=Asia/Shanghai \
@@ -65,7 +65,7 @@ docker run -d \
 | `SESSION_SECRET` | `dev-secret-change-me` | Express Session 密钥，生产环境务必修改 |
 | `TZ` | `Asia/Shanghai` | 时区，影响定时任务执行时间 |
 | `HOST` | `0.0.0.0` | 前端监听地址 |
-| `PORT` | `8080` | 前端监听端口 |
+| `PORT` | `10513` | 前端监听端口 |
 
 ## 数据持久化
 

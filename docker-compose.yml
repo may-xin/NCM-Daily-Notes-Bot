@@ -3,7 +3,7 @@ services:
     build: .
     container_name: ncm-dnb
     ports:
-      - "8080:8080"
+      - "10513:10513"
     volumes:
       - ./data:/app/data
     environment:

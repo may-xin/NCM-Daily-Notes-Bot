@@ -9,7 +9,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const HOST = process.env.HOST || "0.0.0.0";
-const PORT = Number(process.env.PORT || 8080);
+const PORT = Number(process.env.PORT || 10513);
 const API_BASE = (process.env.NCM_API_BASE || "http://127.0.0.1:3000").replace(/\/$/, "");
 const SESSION_SECRET = process.env.SESSION_SECRET || "dev-secret-change-me";
 const TIMEZONE = process.env.TZ || "Asia/Shanghai";

@@ -24,7 +24,7 @@ RUN chmod +x start.sh
 # Create data volume directory
 RUN mkdir -p /app/data
 
-EXPOSE 3000 8080
+EXPOSE 3000 10513
 
 ENTRYPOINT ["/sbin/tini", "--"]
 CMD ["./start.sh"]
