@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM node:22-alpine
 
 RUN apk add --no-cache git tini curl
 
@@ -8,12 +8,12 @@ WORKDIR /app
 # Source: https://github.com/NeteaseCloudMusicApiEnhanced/api-enhanced
 RUN git clone --depth 1 https://github.com/NeteaseCloudMusicApiEnhanced/api-enhanced.git
 WORKDIR /app/api-enhanced
-RUN npm install --production
+RUN npm install --omit=dev --ignore-scripts
 
 # Install frontend dependencies
 WORKDIR /app
 COPY package.json package-lock.json ./
-RUN npm install --production
+RUN npm install --omit=dev
 
 # Copy frontend source
 COPY server.js .
