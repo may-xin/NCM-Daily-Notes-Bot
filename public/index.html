@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>网易云扫码登录 · 文本笔记发布</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="card">
+        <h1>网易云扫码登录</h1>
+        <p class="muted">打开网易云音乐 App 扫码登录，成功后即可发布文本笔记。</p>
+
+        <div class="qr-area">
+          <div class="qr-box">
+            <img id="qrImage" alt="二维码" />
+          </div>
+          <div class="qr-meta">
+            <div id="qrStatus" class="status">等待生成二维码…</div>
+            <button id="refreshBtn" class="btn">刷新二维码</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>发布文本笔记</h2>
+        <p class="muted">调用 `type=noresource` 的文本动态接口。</p>
+        <form id="noteForm">
+          <textarea id="noteInput" placeholder="写点什么…" rows="6"></textarea>
+          <div class="actions">
+            <button type="submit" class="btn primary">发布</button>
+            <button type="button" id="logoutBtn" class="btn ghost">退出登录</button>
+          </div>
+        </form>
+        <pre id="noteResult" class="result"></pre>
+      </section>
+
+      <section class="card">
+        <h2>每日定时发布</h2>
+        <p class="muted">每天 03:00 自动发布固定内容（服务端时区）。</p>
+        <form id="scheduleForm">
+          <textarea id="scheduleInput" placeholder="每天固定发布的内容…" rows="4"></textarea>
+          <div class="actions">
+            <button type="submit" class="btn primary">保存定时内容</button>
+          </div>
+        </form>
+        <div id="scheduleInfo" class="status">读取中…</div>
+      </section>
+
+      <section class="card">
+        <h2>历史发送</h2>
+        <p class="muted">最新 10 条记录</p>
+        <ul id="historyList" class="history"></ul>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

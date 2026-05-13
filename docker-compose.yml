@@ -1,0 +1,13 @@
+services:
+  ncm-dnb:
+    build: .
+    container_name: ncm-dnb
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./data:/app/data
+    environment:
+      - NCM_API_BASE=http://127.0.0.1:3000
+      - SESSION_SECRET=${SESSION_SECRET:-change-me-in-production}
+      - TZ=Asia/Shanghai
+    restart: unless-stopped
